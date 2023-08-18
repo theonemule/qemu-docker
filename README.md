@@ -1,4 +1,4 @@
-# QEMU in a Linux Container. Run Windows VMs and Connect Via a Brwoser!
+# QEMU in a Linux Container. Run Windows VMs and Connect Via a Browser!
 
 [<img src="servercontainer.jpg" width="50%">](https://youtu.be/NVqP40Sv2Xc)
 
