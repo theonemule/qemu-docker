@@ -6,9 +6,10 @@
 
 1. Build the Docker File
 2. Run the Docker container
-`
-docker run -p 8081:8080 -p 8881:8888 -v /root:/isos qemu
-`
+
+	`
+	docker run -p 8081:8080 -p 8881:8888 -v /root:/isos qemu
+	`
 
 	The -p forwards ports. You can use whatever ports you want, but 8080 is for the NoVNC client, and 8888 is for a web app. It's optional if you don't want to use an app like I did. Use -v to mount a folder to store your iso files and VHD files.
 
