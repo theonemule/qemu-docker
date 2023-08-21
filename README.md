@@ -10,7 +10,7 @@
 docker run -p 8081:8080 -p 8881:8888 -v /root:/isos qemu
 `
 
-The -p forwards ports. You can use whatever ports you want, but 8080 is for the NoVNC client, and 8888 is for a web app. It's optional if you don't want to use an app like I did. Use -v to mount a folder to store your iso files and VHD files.
+	The -p forwards ports. You can use whatever ports you want, but 8080 is for the NoVNC client, and 8888 is for a web app. It's optional if you don't want to use an app like I did. Use -v to mount a folder to store your iso files and VHD files.
 
 3.  Connect to the container using your browser and select vnc.html. Login to NoVNC. The default password is "password1"
 4.  You'll be connected to the container in LXTerminal. You can use Qemu commands to create a the VM
