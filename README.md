@@ -1,26 +1,25 @@
-# QEMU in a Linux Container. Run Windows VMs and Connect Via a Browser!
+# 86BOX IN A CONTAINER PLAYABLE THROUGH A BROWSER
 
-[<img src="servercontainer.jpg" width="50%">](https://youtu.be/NVqP40Sv2Xc)
+Now, you can run DOS, Windows 95, Windows 98, Windows 98 SE, and Windows XP in a container!
 
-(Yeah... that's about as crazy as it sounds, but hey, it works. )
+[<img src="docker.jpg" width="50%">](https://www.youtube.com/watch?v=PXUWpbcCL6A) "WINDOWS98 IN A CONTAINER")
 
-1. Build the Docker File
-2. Run the Docker container
+RetroArch in a container typically requires that you have some kind of specialized client to play the games over the network. Not anymore. This implementation uses a web browser as the client without the need for anything else installed on your client.
 
-	`
-	docker run -p 8081:8080 -p 8881:8888 -v /root:/isos qemu
-	`
+The implementation is pretty straightforward. You can run it locally, or run it on a cloud-hosted service, like Azure Container Instances or Azure Kubernetes Services. In any case, you'll probably want to allocate at least 2 Gigs of RAM and 2 CPUs to make things run smoothly -- more for more graphic-intense emulators.
 
-	The -p forwards ports. You can use whatever ports you want, but 8080 is for the NoVNC client, and 8888 is for a web app. It's optional if you don't want to use an app like I did. Use -v to mount a folder to store your iso files and VHD files.
+If you want to build it, simply clone the repo and run Docker Build.
 
-3.  Connect to the container using your browser and select vnc.html. Login to NoVNC. The default password is "password1"
-4.  You'll be connected to the container in LXTerminal. You can use Qemu commands to create a the VM
-5.  Create a VHD with qemu-img qemu-img: `create -f vpc /isos/server2008.vhd 10G`
+`docker build -t 86box . ` 
 
-	The -f is for format. It creates a VPC format commonly used by hypervisors. The next paramater is the path to the file. Put this outside the container in the folder you mounted. The last paramter is size.
-   
-6.  Create a new VM: `qemu-system-i386 -cpu pentium -m 2G  -hda /isos/2008.vhd -cdrom /isos/server2008.iso -boot d -nic user,model=e1000,hostfwd=tcp::8888-:80`
+Alternately, you can pull the image from Docker Hub.
 
-	This creates a 32-bit emulation of an x86 CPU. -m tells it yo use 2 Gigs of RAM. The -hda is the path to your VHD. -cdrom is the path to your Windows ISO. -book d tells it to boot from the VHD first. -nic tells it to use SLiRP (a user-mode network stack) and use an e1000 NIC for compatibility. The hostfwd forwards port 8888 from the container to port 80 on the VM.
+`docker pull blaize/86box`
 
-7. Install Windows and enjoy your VM.
+To run this locally, run a Docker command:
+
+`docker run -v /path/to/your/isos:/isos -p 80:80 blaize/86box`
+
+Once the container is running, point your browser to the IP address or host name of your Docker environment. Retroarch has a basic install here.
+
+Build your oldschool PC and run your favorite OSs in the cloud!
