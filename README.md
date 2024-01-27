@@ -14,11 +14,11 @@ If you want to build it, simply clone the repo and run Docker Build.
 
 Alternately, you can pull the image from Docker Hub.
 
-`docker pull blaize/86box`
+`docker pull blaize/qemu-docker`
 
 To run this locally, run a Docker command:
 
-`docker run -v /path/to/your/isos:/isos -p 80:80 blaize/86box`
+`docker run -v /path/to/your/isos:/isos -p 80:80 blaize/qemu-docker`
 
 Once the container is running, point your browser to the IP address or host name of your Docker environment. Retroarch has a basic install here.
 
