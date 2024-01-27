@@ -1,16 +1,13 @@
-# 86BOX IN A CONTAINER PLAYABLE THROUGH A BROWSER
+# QEMU IN A CONTAINER PLAYABLE THROUGH A BROWSER
 
 Now, you can run DOS, Windows 95, Windows 98, Windows 98 SE, and Windows XP in a container!
 
-[<img src="docker.jpg" width="50%">](https://www.youtube.com/watch?v=PXUWpbcCL6A) "WINDOWS98 IN A CONTAINER")
-
-RetroArch in a container typically requires that you have some kind of specialized client to play the games over the network. Not anymore. This implementation uses a web browser as the client without the need for anything else installed on your client.
 
 The implementation is pretty straightforward. You can run it locally, or run it on a cloud-hosted service, like Azure Container Instances or Azure Kubernetes Services. In any case, you'll probably want to allocate at least 2 Gigs of RAM and 2 CPUs to make things run smoothly -- more for more graphic-intense emulators.
 
 If you want to build it, simply clone the repo and run Docker Build.
 
-`docker build -t 86box . ` 
+`docker build -t qemu . ` 
 
 Alternately, you can pull the image from Docker Hub.
 
