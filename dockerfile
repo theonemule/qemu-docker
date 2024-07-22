@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 #User Settings for VNC
 ENV USER=root
-ENV PASSWORD=password1
+ENV PASSWORD=dev
 
 #Variables for installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -41,8 +41,8 @@ RUN sed -i "/import RFB/a \
     /usr/share/novnc/app/ui.js
 				
 #Install VirtualGL and TurboVNC		
-RUN  wget https://gigenet.dl.sourceforge.net/project/virtualgl/3.1/virtualgl_3.1_amd64.deb && \
-     wget https://zenlayer.dl.sourceforge.net/project/turbovnc/3.0.3/turbovnc_3.0.3_amd64.deb && \
+RUN  wget https://unlimited.dl.sourceforge.net/project/virtualgl/3.1/virtualgl_3.1_amd64.deb?viasf=1 -O virtualgl_3.1_amd64.deb && \
+     wget https://unlimited.dl.sourceforge.net/project/turbovnc/3.0.3/turbovnc_3.0.3_amd64.deb?viasf=1 -O turbovnc_3.0.3_amd64.deb && \
      dpkg -i virtualgl_*.deb && \
      dpkg -i turbovnc_*.deb
 
